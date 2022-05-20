@@ -3,6 +3,7 @@ import {
     getAuth,
     signInWithRedirect,
     signInWithPopup,
+    signInWithEmailAndPassword,
     GoogleAuthProvider,
     createUserWithEmailAndPassword
 } from 'firebase/auth';
@@ -39,6 +40,7 @@ export const signInWithGoogleRedirect = () => signInWithRedirect(auth, googlePro
 
 export const db = getFirestore();
 
+// creating user doc/account w authorized credentials
 export const createUserDocumentFromAuth = async (
     userAuth, 
     additionalInformation = {}
@@ -80,10 +82,21 @@ export const createUserDocumentFromAuth = async (
 
 };
 
+// creating authorized user w email/password
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
     // if we do NOT recieve args then DONT run funct
     if(!email || !password) return;
 
    return await createUserWithEmailAndPassword(auth, email, password)
     
-}
+};
+
+
+export const signInAuthUserWithEmailAndPassword = async (email, password) => {
+    // if we do NOT recieve args then DONT run funct
+    if(!email || !password) return;
+
+   return await signInWithEmailAndPassword(auth, email, password)
+    
+};
+  
