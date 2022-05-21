@@ -4,7 +4,7 @@ import { createContext, useState } from 'react';
 //literal context
 export const UserContext = createContext({
     currentUser: null,
-    setCurrentUser: () => {}
+    setCurrentUser: () => null
 });
 
 export const UserProvider = ({ children }) => {

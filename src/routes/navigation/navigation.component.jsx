@@ -10,6 +10,7 @@ const Navigation = () => {
     //useContext to pass signed in user props, sign-in --> signed-in ;
     const { currentUser } = useContext(UserContext);
     // console.log(currentUser);
+    
 
     return (
         <Fragment>
