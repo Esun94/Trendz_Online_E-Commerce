@@ -7,16 +7,9 @@ import './navigation.styles.scss'
 
 
 const Navigation = () => {
-    //useContext to pass signed in user props, sign-in --> signed-in ;
-    const { currentUser, setCurrentUser } = useContext(UserContext);
-    // console.log(currentUser);
-
-    const signOutHandler = async () => {
-        const res = await signOutUser();
-        console.log(res)
-        setCurrentUser(null);
-    }
-
+   
+    const { currentUser } = useContext(UserContext);
+    
     return (
         <Fragment>
             <div className="navigation">
@@ -28,7 +21,7 @@ const Navigation = () => {
                         Shop
                     </Link>
                     {currentUser ? (
-                        <span className="nav-link" onClick={signOutHandler}>Sign Out</span>
+                        <span className="nav-link" onClick={signOutUser}>Sign Out</span>
                     ) : (
                         <Link className="nav-link" to="/auth">
                             Sign-In
