@@ -22,16 +22,13 @@ const SignInForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields)
     const { email, password } = formFields;
 
-    // const { setCurrentUser } = useContext(UserContext)
-
     const resetFormFields = () => {
         setFormFields(defaultFormFields)
     }
 
     const signInWithGoogle = async () => {
         await signInWithGooglePopup();
-        //setCurrentUser(user)
-       
+    
     }
 
 
